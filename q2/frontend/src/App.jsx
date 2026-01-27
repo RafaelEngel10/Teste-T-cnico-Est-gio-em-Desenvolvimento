@@ -1,35 +1,41 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { PersonalForm } from './components/PersonalForm'
 
-function App() {
+export default function App() {
   const [count, setCount] = useState(0)
+
+  function handleClick(id, newId) {
+    const doc = document.getElementById(id);
+    doc.style.display = `none`;
+
+    const newDoc = document.getElementById(newId);
+    newDoc.style.display = `flex`;
+    return
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main>
+        <section id='main-section'>
+          <div>
+            <div>
+              <button type='button' onClick={() => handleClick('main-section', 'form-section')}>Adicionar novo personal</button>  
+              <button type='button'>Adicionar novo aluno</button>  
+              <button type='button'>Adicionar novo treino</button>  
+              <button type='button'>Adicionar novo exercício</button>  
+            </div>  
+          </div>
+          <div>
+
+          </div>
+          <div>
+
+          </div>
+        </section >
+        <section id='form-section' style={{ display: 'none' }}>
+          <PersonalForm />
+        </section>
+      </main>
     </>
   )
 }
-
-export default App

@@ -1,3 +1,12 @@
+<!--
+    Leia este arquivo utilizando o modo Preview. 
+
+    Se estiver lendo de dentro do VSCode. Clique com o botão direito em cima do arquivo e clique em "Open Preview". Atalho do VSCode para isso é o Crtl + Shift + V
+
+    Se estiver lendo pelo GitHub.     
+-->
+
+
 # CREATE 
 <pre>
 1. <b>Cadastro de profissional:</b>
@@ -14,7 +23,7 @@
     }
 
     - Consulta em SQL:
-    INSERT INTO Personal (nome, email, telefone, registro_prof)
+    INSERT INTO personal_app.Personal (nome, email, telefone, registro_prof)
     VALUES ('João Pedro Martins', 'joaopedromartins03@fit.com.br', '359999911111', '123456-G/MG');
 
 2. <b>Cadastro de alunos:</b>
@@ -33,7 +42,7 @@
     }
 
     - Consulta em SQL:
-    INSERT INTO aluno (id_personal, nome, data_nascimento, peso, altura, objetivo)
+    INSERT INTO personal_app.aluno (id_personal, nome, data_nascimento, peso, altura, objetivo)
     VALUES (1, 'Carlos Souza', '1998-05-10', 82.5, 1.78, 'Hipertrofia');
 
 3. <b>Cadastro de treinos:</b>
@@ -49,7 +58,7 @@
     }
 
     - Consulta em SQL:
-    INSERT INTO treino (id_aluno, nome_treino, observacoes)
+    INSERT INTO personal_app.treino (id_aluno, nome_treino, observacoes)
     VALUES (3, 'Treino A - Peito', 'Foco em carga progressiva');
 
 4. <b>Cadastro de exercícios:</b>
@@ -69,7 +78,7 @@
     }
 
     - Consulta em SQL:
-    INSERT INTO exercicio (id_treino, nome, series, repeticoes, carga, descanso, ordem)
+    INSERT INTO personal_app.exercicio (id_treino, nome, series, repeticoes, carga, descanso, ordem)
     VALUES (10, 'Supino Reto', 4, '8-10', '40kg', '60s', 1);
 </pre>
 
