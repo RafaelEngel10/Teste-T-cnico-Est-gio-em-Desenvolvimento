@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export function AlunoForm() {
-    const [form, setForm] = useState({
+  const [form, setForm] = useState({
     id_personal: "",
     nome: "",
     data_nascimento: "",

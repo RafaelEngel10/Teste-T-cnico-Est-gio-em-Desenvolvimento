@@ -1,11 +1,15 @@
-import { useParams } from 'react-router-dom';
- 
+import { useParams, useNavigate } from 'react-router-dom';
+import { AlunosporPersonal } from '../components/read/AlunosporPersonal';
+import { TreinosporAluno } from '../components/read/TreinosporAluno';
+
 const list = {
-    
+    alunos: <AlunosporPersonal />,
+    treinos: <TreinosporAluno />
 }
 
 export function Listar() {
     const { id } = useParams();
+    const navigate = useNavigate();
 
     return (
         <div className='section-parent'>

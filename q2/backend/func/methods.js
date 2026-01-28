@@ -278,6 +278,87 @@ App.get('/personal/:id', async (req, res) => {
 
 
 
+// -- Método Update --
+App.put("/alunos/:id", async (req, res) => {
+  const { id } = req.params;
+  let { id_personal, nome, data_nascimento, peso, altura, objetivo } = req.body;
+
+  try {
+    data_nascimento = data_nascimento || null;
+    peso = peso === "" ? null : peso;
+    altura = altura === "" ? null : altura;
+    nome = nome || null;
+    objetivo = objetivo || null;
+    id_personal = id_personal === "" ? null : id_personal;
+
+    if (id_personal) {
+      const personalCheck = await pool.query(
+        `SELECT 1 FROM personal_app."Personal" WHERE id_personal = $1`,
+        [id_personal]
+      );
+      if (personalCheck.rowCount === 0) {
+        return res.status(400).json({ error: "Personal não existe." });
+      }
+    }
+
+    const result = await pool.query(
+      `UPDATE personal_app."Aluno"
+       SET id_personal = COALESCE($1, id_personal),
+           nome = COALESCE($2, nome),
+           data_nascimento = COALESCE($3, data_nascimento),
+           peso = COALESCE($4, peso),
+           altura = COALESCE($5, altura),
+           objetivo = COALESCE($6, objetivo)
+       WHERE id_aluno = $7
+       RETURNING *`,
+      [id_personal, nome, data_nascimento, peso, altura, objetivo, id]
+    );
+
+    if (result.rowCount === 0) {
+      return res.status(404).json({ error: "Aluno não encontrado." });
+    }
+
+    res.json({ message: "Aluno atualizado com sucesso.", aluno: result.rows[0] });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Erro ao atualizar aluno." });
+  }
+});
+
+
+App.put("/treino/:id", async (req, res) => {
+  const { id } = req.params;
+  const { nome_treino, data_criacao, observacoes } = req.body;
+
+  try {
+    const sql = `
+      UPDATE personal_app."Treino"
+      SET nome_treino = $1,
+          data_criacao = $2,
+          observacoes = $3,
+      WHERE id_treino = $4
+      RETURNING *
+    `;
+
+    const result = await query(sql, [nome_treino, data_criacao, observacoes, id]);
+
+    if (result.rowCount === 0) {
+      return res.status(404).json({ error: "Treino não encontrado." });
+    }
+
+    res.json({
+      message: "Treino atualizado com sucesso.",
+      treino: result.rows[0],
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Erro ao atualizar treino." });
+  }
+});
+
+
+
 // -- Método Delete --
 
 

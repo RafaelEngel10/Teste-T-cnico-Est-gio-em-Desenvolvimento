@@ -156,3 +156,9 @@ div, form {
   max-width: 35px;
   width: 100%;
 }
+
+.section-child {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

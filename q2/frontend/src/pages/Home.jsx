@@ -1,3 +1,4 @@
+import { Atualizacao } from '../components/Atualizacao';
 import { Cadastros } from '../components/Cadastro';
 import { Overview } from '../components/Overview';
 
@@ -19,11 +20,14 @@ export default function Home() {
             </div>
 
             <div className='section-parent' id='section-parent-3'>
-
+              <div className='div-parent'>
+                <Atualizacao />
+              </div>
             </div>
 
             <div className='section-parent' id='section-parent-4'>
-
+              <div className='div-parent'>
+              </div>
             </div>
           </section>
         </main>
