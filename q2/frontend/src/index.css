@@ -90,6 +90,13 @@ div, form {
   }
 }
 
+.main-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 8px;
+}
+
 .section-parent {
   display: flex;
   flex-direction: column;
@@ -101,6 +108,31 @@ div, form {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   padding: 25px;
   border-radius: 10px;
+  align-items: center;
+}
+
+#section-parent-1 {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+}
+
+#section-parent-2 {
+  grid-column: span 2 / span 2;
+  grid-row: span 3 / span 3;
+  grid-column-start: 3;
+}
+
+#section-parent-3 {
+  grid-column: span 2 / span 2;
+  grid-row: span 3 / span 3;
+  grid-row-start: 3;
+}
+
+#section-parent-4 {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+  grid-column-start: 3;
+  grid-row-start: 4;
 }
 
 .form-section {
@@ -118,4 +150,9 @@ div, form {
 .child-div {
   display: flex;
   align-items: center;
+}
+
+.new-child-div {
+  max-width: 35px;
+  width: 100%;
 }

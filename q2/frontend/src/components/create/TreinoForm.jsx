@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 export function TreinoForm() {
   const [etapa, setEtapa] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   const [treino, setTreino] = useState({
     id_aluno: "",
