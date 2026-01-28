@@ -120,13 +120,90 @@
 
 - Body em JSON:
     {
+        "id_personal": 1,
+        "nome": "Fulano",
+        "data_nascimento": "1998-05-10",
         "peso": 80.0,
-        "objetivo": "Definição"
+        "altura": 1.78,
+        "objetivo": "Definição"  <!-- Novo objetivo -->
     }
 
 - Consulta em SQL:
     UPDATE aluno 
-        SET peso = 80.0,
-            objetivo = 'Definição'
+        SET id_personal = $1,
+            nome = $2,
+            data_nascimento = $3,
+            peso = $4,
+            altura = $5,
+            objetivo = $6
+    WHERE id_aluno = $7;
+
+<b>.2: Atualizar dados de um treino</b>
+- Endpoint:
+    PUT /treinos/10
+
+- Body em JSON:
+    {
+        "nome_treino": "Treino A - Peito",
+        "data_criacao": "2026-01-27",
+        "observacoes": "Aumentar carga progressivamente"
+    }
+
+- Consulta em SQL:
+    UPDATE treino
+        SET nome_treino = $1,
+            data_criacao = $2,
+            observacoes = $3
+    WHERE id_treino = $4;
+
+<b>.3: Atualizar dados de um exercício</b>
+- Endpoint:
+    PUT /exercicios/1
+
+- Body em JSON:
+    {
+        "nome": "Supino Reto",
+        "series": 4,
+        "repeticoes": "8-10",
+        "carga": "40kg",
+        "descanso": "60s",
+        "ordem": 1
+    }
+
+- Consulta em SQL:
+    UPDATE exercicio
+        SET nome = $1,
+            series = $2,
+            repeticoes = $3,
+            carga = $4,
+            descanso = $5,
+            ordem = $6
+    WHERE id_exercicio = $7
+</pre>
+
+# DELETE
+<pre>
+<b>.1: Deletar um aluno</b>
+- Endpoint:
+    DELETE /alunos/3
+
+- Consulta em SQL:
+    DELETE FROM aluno
     WHERE id_aluno = 3;
+
+<b>.2: Deletar um treino</b>
+- Endpoint:
+    DELETE /treinos/10
+
+- Consulta em SQL:
+    DELETE FROM treino
+    WHERE id_treino = 10;
+
+<b>.3: Deletar um exercício</b>
+- Endpoint:
+    DELETE /exercicios/1
+
+- Consulta em SQL:
+    DELETE FROM exercicio
+    WHERE id_exercicio = 1;
 </pre>
