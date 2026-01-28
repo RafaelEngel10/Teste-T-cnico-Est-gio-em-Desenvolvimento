@@ -1,12 +1,3 @@
-<!--
-    Leia este arquivo utilizando o modo Preview. 
-
-    Se estiver lendo de dentro do VSCode. Clique com o botão direito em cima do arquivo e clique em "Open Preview". Atalho do VSCode para isso é o Crtl + Shift + V
-
-    Se estiver lendo pelo GitHub.     
--->
-
-
 # CREATE 
 <pre>
 1. <b>Cadastro de profissional:</b>
