@@ -22,6 +22,8 @@ export function TreinoForm() {
   });
 
   const [exercicios, setExercicios] = useState([]);
+  const [mensagem, setMensagem] = useState("");
+  const [erro, setErro] = useState("");
 
   function handleTreinoChange(e) {
     setTreino({ ...treino, [e.target.name]: e.target.value });
